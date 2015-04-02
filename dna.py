@@ -9,4 +9,4 @@ for line in infile:
     outfile.write(line)
 infile.close()
 outfile.close()
-print("Krivec je Miha")
+print("Za razultat poglejte fajl krivec.py")
