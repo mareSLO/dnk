@@ -1,14 +1,40 @@
-infile = open('C:/Users/metka/PycharmProjects/Phyton_Vaje/vaja6/dna.txt')
-outfile = open('C:/Users/metka/PycharmProjects/Phyton_Vaje/vaja6/krivec.txt', 'w')
-outfile.write('Krivec je Miha!\n')
+datoteka = open("dna.txt", "r")
+dna = datoteka.read()
 
+Crni_lasje = "CCAGCAATCGC"
+Rjavi_lasje = "GCCAGTGCCG"
+Korencek = "TTAGCTATCGC"
 
-replacements = {'CCAGCAATCGC':'Crna', 'GCCAGTGCCG':'Rjava', 'TTAGCTATCGC':'Korencek', "GCCACGG" : "Kvadraten", "ACCACAA" : "Okrogel", "AGGCCTCA" : "Ovalen", "TTGTGGTGGC" : "Modra", "GGGAGGTGGC" : "Zelena", "AAGTAGTGAC" : "Rjava", "TGCAGGAACTTC" : "Moski", "TGAAGGACCTTC" : "Zenska", "AAAACCTCA" : "Belec", "CGACTACAG" : "Crnec", "CGCGGGCCG" : "Azijec"}
+Moski = "TGCAGGAACTTC"
+Zenska = "TGAAGGACCTTC"
 
-for line in infile:
-    for src, target in replacements.iteritems():
-        line = line.replace(src, target)
-    outfile.write(line)
-infile.close()
-outfile.close()
-print("Za razultat poglejte fajl krivec.txt")
+Belec = "AAAACCTCA"
+Crnec = "CGACTACAG"
+Azijec = "CGCGGGCCG"
+
+Modre_oci = "TTGTGGTGGC"
+Zelene_oci = "GGGAGGTGGC"
+Rjave_oci = "AAGTAGTGAC"
+
+Kvadraten_obraz = "GCCACGG"
+Okrogel_obraz = "ACCACAA"
+Ovalen_obraz = "AGGCCTCA"
+
+if dna.count(Moski) and dna.count(Belec) and dna.count(Korencek)\
+        and dna.count(Rjave_oci) and dna.count(Okrogel_obraz) == 1:
+    print("Ziga je ukradel sladoled!")
+
+elif dna.count(Moski) and dna.count(Belec) and dna.count(Crni_lasje)\
+        and dna.count(Modre_oci)and dna.count(Ovalen_obraz) == 1:
+    print("Matej je ukradel sladoled!")
+
+elif dna.count(Moski)and dna.count(Belec) and dna.count(Rjavi_lasje)\
+        and dna.count(Zelene_oci)and dna.count(Kvadraten_obraz) == 1:
+    print("Miha je ukradel sladoled!")
+else:
+    print("Tat se spretno izogiba rokam pravice!")
+
+print("Kaj sem v posodi pustil zlico, opica ena!!!")
+print("Roke prekriza za hrbet, ter se pusti odvesti v kiblo.")
+
+datoteka.close()
